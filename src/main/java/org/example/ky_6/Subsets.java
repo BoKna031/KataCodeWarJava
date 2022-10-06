@@ -17,9 +17,11 @@ public class Subsets {
 
 
     private static long formula(int elementCount, int numberOfPlaces){
+
+        if(numberOfPlaces < elementCount - numberOfPlaces)
+            numberOfPlaces =  elementCount - numberOfPlaces;
+
         long result = 1;
-        if(elementCount == numberOfPlaces)
-            return 1;
         for(int i = 1; i <= numberOfPlaces; i++){
            result = result * (elementCount - numberOfPlaces + i) / i ;
         }
